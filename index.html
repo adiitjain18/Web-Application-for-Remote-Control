@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bluetooth Car Control</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+            socket.on('connect', () => {
+                console.log('Connected to server');
+            });
+
+            document.querySelectorAll('.control-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    let command = button.getAttribute('data-command');
+                    socket.emit('control', { command: command });
+                });
+            });
+
+            socket.on('response', (data) => {
+                console.log(data.data);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Bluetooth Car Control</h1>
+    <button class="control-button" data-command="forward">Forward</button>
+    <button class="control-button" data-command="backward">Backward</button>
+    <button class="control-button" data-command="left">Left</button>
+    <button class="control-button" data-command="right">Right</button>
+    <button class="control-button" data-command="stop">Stop</button>
+</body>
+</html>
