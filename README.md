@@ -54,23 +54,22 @@ The application uses Flask, Flask-SocketIO, and WebSockets for real-time communi
 
 ### Running the Application
 
-1. Ensure your Bluetooth module is connected to the car's microcontroller and paired with your computer. Adjust the COM port and baud rate in `app.py` as needed.
+1. Ensure your Bluetooth module is connected to the car's microcontroller and paired with your computer. Adjust the COM port and baud rate in `application.py` as needed.
 
 2. Start the Flask application:
 
     ```bash
-    python app.py
+    python application.py
     ```
 
 3. Open your web browser and navigate to `http://localhost:5000` to access the control interface.
 
 ### Project Structure
 ```bash
-BluetoothCarControl/
+Bluetooth Car Control 
 │
-├── app.py
+├── application.py
 ├── requirements.txt
-└── templates/
 └── index.html
 ```
 ## How to Use
